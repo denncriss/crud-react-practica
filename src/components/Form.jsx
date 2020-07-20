@@ -21,33 +21,53 @@ function Form({ getUsers }) {
       // try {
       let url = 'https://academlo-api-users.herokuapp.com/users';
       const res = await axios.post(url, user);
-      const { data } = res.data;
+      const data = res.data;
       getUsers();
       setUsuarios(data);
-      console.log(usuarios);
-      // } catch (error) {
-      //   console.log(error);
-      // }
+      console.log(usuarios.message);
     };
     getUser();
   };
   return (
-    <div>
-      <p>formulario:</p>
+    <div className='card p-4'>
+      <p className='card-title text-uppercase text-center h5 text-white p-3 bg-info'>
+        registrar usuario
+      </p>
       <form onSubmit={enviarForm}>
-        <label htmlFor='name'>nombre: </label>
-        <input type='text' name='name' onChange={handleChange} />
-        <br />
-        <label htmlFor='lastname'>apellido: </label>
-        <input type='text' name='lastname' onChange={handleChange} />
-        <br />
-        <label htmlFor='email'>email: </label>
-        <input type='email' name='email' onChange={handleChange} />
-        <br />
-        <label htmlFor='password'>pw: </label>
-        <input type='password' name='password' onChange={handleChange} />
-        <br />
-        <button type='submit'>enviar formulario</button>
+        <label htmlFor='name'>nombre</label>
+        <input
+          type='text'
+          name='name'
+          className='form-control'
+          onChange={handleChange}
+        ></input>
+        <label htmlFor='lastname'>apellido</label>
+        <input
+          type='text'
+          name='lastname'
+          className='form-control'
+          onChange={handleChange}
+        ></input>
+        <label htmlFor='email'>email</label>
+        <input
+          type='email'
+          name='email'
+          className='form-control'
+          onChange={handleChange}
+        ></input>
+        <label htmlFor='password'>contraseña</label>
+        <input
+          type='password'
+          name='password'
+          className='form-control'
+          onChange={handleChange}
+        ></input>
+        <button
+          type='submit'
+          className='btn btn-info text-white mt-3 btn-block'
+        >
+          registrar
+        </button>
       </form>
     </div>
   );

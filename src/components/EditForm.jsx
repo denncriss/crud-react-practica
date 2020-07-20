@@ -3,38 +3,49 @@ import React from 'react';
 function EditForm({ userEdit, updateUser, editInput }) {
   const { name, lastname, email, password } = userEdit;
   return (
-    <div>
-      <h2>Editar un usuario</h2>
+    <div className='card p-4'>
+      <p className='card-title text-uppercase text-center h5 text-white p-3 bg-success'>
+        editar usuario
+      </p>
       <form onSubmit={updateUser}>
+        <label htmlFor='name'>nombre</label>
         <input
-          name='name'
           type='text'
-          placeholder='Nombre'
+          name='name'
+          className='form-control'
           value={name}
           onChange={editInput}
-        />
+        ></input>
+        <label htmlFor='lastname'>apellido</label>
         <input
-          name='lastname'
           type='text'
-          placeholder='Apellidos'
+          name='lastname'
+          className='form-control'
           value={lastname}
           onChange={editInput}
-        />
+        ></input>
+        <label htmlFor='email'>email</label>
         <input
-          name='email'
           type='email'
-          placeholder='Email'
+          name='email'
+          className='form-control'
           value={email}
           onChange={editInput}
-        />
+        ></input>
+        <label htmlFor='password'>contraseña</label>
         <input
-          name='password'
           type='password'
-          placeholder='Contraseña'
           value={password}
+          name='password'
+          className='form-control'
           onChange={editInput}
-        />
-        <input type='submit' value='Actualizar usuario' />
+        ></input>
+        <button
+          type='submit'
+          className='btn btn-success text-white mt-3 btn-block'
+        >
+          confirmar
+        </button>
       </form>
     </div>
   );
